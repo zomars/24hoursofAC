@@ -12,17 +12,17 @@
     <audio id="youtube" autoplay controls loop></audio>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
-        var vid = "CM58GBw4JkE",
-            audio_streams = {};
+        var vid = "yyjUmv1gJEg";
+        var audio_streams = {};
 
         $.get('https://cors-anywhere.herokuapp.com/https://www.youtube.com/get_video_info?video_id=' + vid, function (data) {
-            var data = parse_str(data),
-                streams = (data.url_encoded_fmt_stream_map + ',' + data.adaptive_fmts).split(',');
+            var data = parse_str(data);
+            var streams = (data.url_encoded_fmt_stream_map + ',' + data.adaptive_fmts).split(',');
             console.log(streams);
             $.each(streams, function (n, s) {
-                var stream = parse_str(s),
-                    itag = stream.itag * 1,
-                    quality = false;
+                var stream = parse_str(s);
+                var itag = stream.itag * 1;
+                var quality = false;
                 console.log(stream);
                 switch (itag) {
                     case 139:
