@@ -9,10 +9,11 @@
 </head>
 
 <body>
-    <audio id="youtube" autoplay controls loop></audio>
+    <audio id="youtube" controls loop></audio>
     <script src="ac.js"></script>
     <script>
-        new YTAudio('3xny-xwQ9-k').init();
+        var audioPlayer = document.querySelector('#youtube');
+        new YTAudio(audioPlayer, 'DhrsQO9Pkbs').init();
     </script>
 </body>
 

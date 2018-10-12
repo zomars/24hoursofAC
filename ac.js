@@ -1,4 +1,5 @@
-function YTAudio(id) {
+function YTAudio(elem, id) {
+  this.elem = elem;
   this.id = id;
   this.audio_streams = {};
 }
@@ -43,13 +44,11 @@ YTAudio.prototype.init = function() {
           if (quality) this.audio_streams[quality] = stream.url;
 
           console.log(this.audio_streams);
-          document
-            .querySelector('#youtube')
-            .setAttribute('src', this.audio_streams['128kbps']);
+          this.elem.setAttribute('src', this.audio_streams['128kbps']);
+          this.elem.setAttribute('autoplay', true);
         }.bind(this),
       );
     } else {
-      // What do when the request fails
       console.log('The request failed!');
     }
   }.bind(this);
